@@ -1,7 +1,7 @@
 // create the base map
 var myMap = L.map("map", {
     center: [29.76, -95.37],
-    zoom: 5
+    zoom: 6
 });
 
 // Adding a tile layer (the background map image) to our map.
@@ -12,4 +12,6 @@ L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
     accessToken: API_KEY
 }).addTo(myMap);
 
+// Storing query url link
+var link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
