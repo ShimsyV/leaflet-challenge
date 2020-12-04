@@ -1,4 +1,3 @@
-// create the base map
 var myMap = L.map("map", {
     center: [29.76, -95.37],
     zoom: 6
@@ -15,3 +14,11 @@ L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?acce
 // Storing query url link
 var link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
+// Adding a marker to the map for each reading
+d3.json(link, function (response) {
+
+    console.log(response.features);
+
+
+
+});
