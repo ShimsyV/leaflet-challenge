@@ -41,19 +41,18 @@ d3.json(link, function (response) {
         var myCircle = L.circle([geometry.coordinates[1], geometry.coordinates[0]], {
             radius: magnitude * 7500,
             color: 'black',
-            fillcolor: 
-
-
-        })
-
-
-
+            fillColor: getColor(geometry.coordinates[2]),
+            fillOpacity: .85,
+            weight: 1
+        }).bindPopup(`<h3>${properties.title}</h3><hr>
+        <p>Magnitude:${magnitude}<br>
+        Depth:${depth}</p>`).addTo(myMap);
 
     });
 
 });
 
-function getcolor(depth) {
+function getColor(depth) {
     return depth > 90 ? '#f03535' :
         depth > 70 ? '#f27227' :
             depth > 50 ? '#f6ac17' :
