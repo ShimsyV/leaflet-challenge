@@ -27,13 +27,20 @@ d3.json(link, function (response) {
         //create variable for properties
         var properties = data.properties;
 
-        console.log("geometry", geometry)
-        console.log("properties", properties.mag)
+        console.log("Geometry", geometry)
+        console.log("Properties", properties.mag)
 
-    })
+        var magnitude = properties.mag
+        var depth = geometry.coordinates[2];
 
+        // if the location field is populated
+        if (geometry) {
+            console.log("Depth ", depth)
+
+        };
+
+
+    });
 
 });
-
-
 
