@@ -15,20 +15,25 @@ var link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.g
 
 
 //Use D3 to get a response from the geojson layer
-d3.json(link, function (data) {
-    console.log(data.features);
-    // Once we get a response, create a geoJSON layer containing the features array and add a popup for each marker
-    // then, send the layer to the createMap() function.
-    var earthquakes = L.geoJSON(data.features, {
-        onEachFeature: addPopup
-    });
+d3.json(link, function (response) {
+    var features = response.features
+
+    console.log(features)
+
+    //Create foreach function response, create the popup
+    features.forEach(function (data) {
+        //create variable for geometry
+        var geometry = data.geometry;
+        //create variable for properties
+        var properties = data.properties;
+
+        console.log("geometry", geometry)
+        console.log("properties", properties.mag)
+
+    })
 
 
 });
-// Define a function we want to run once for each feature in the features array
-function addPopup(feature, layer) {
-    // Give each feature a popup describing the place and time of the earthquake
-    return layer.bindPopup(`<h3> ${feature.properties.place} </h3> <hr> <p> ${Date(feature.properties.time)} </p>`)
-}
+
 
 
