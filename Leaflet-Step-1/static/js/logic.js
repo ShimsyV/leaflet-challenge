@@ -33,14 +33,33 @@ d3.json(link, function (response) {
         var magnitude = properties.mag
         var depth = geometry.coordinates[2];
 
-        // if the location field is populated
-        if (geometry) {
-            console.log("Depth ", depth)
+        //Reading the depth
 
-        };
+        console.log("Depth ", depth)
+
+        //creating circle marker
+        var myCircle = L.circle([geometry.coordinates[1], geometry.coordinates[0]], {
+            radius: magnitude * 7500,
+            color: 'black',
+            fillcolor: 
+
+
+        })
+
+
 
 
     });
 
 });
+
+function getcolor(depth) {
+    return depth > 90 ? '#f03535' :
+        depth > 70 ? '#f27227' :
+            depth > 50 ? '#f6ac17' :
+                depth > 30 ? '#f0de33' :
+                    depth > 10 ? '#a1f64c' :
+                        '#9409c8';
+
+}
 
