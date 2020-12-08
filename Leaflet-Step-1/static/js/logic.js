@@ -25,5 +25,10 @@ d3.json(link, function (data) {
 
 
 });
+// Define a function we want to run once for each feature in the features array
+function addPopup(feature, layer) {
+    // Give each feature a popup describing the place and time of the earthquake
+    return layer.bindPopup(`<h3> ${feature.properties.place} </h3> <hr> <p> ${Date(feature.properties.time)} </p>`)
+}
 
 
