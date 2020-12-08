@@ -78,7 +78,7 @@ function getColor(depth) {
             depth > 50 ? '#f6ac17' :
                 depth > 30 ? '#f0de33' :
                     depth > 10 ? '#a1f64c' :
-                        '#9409c8';
+                        '#dcfcbc';
 
 }
 
