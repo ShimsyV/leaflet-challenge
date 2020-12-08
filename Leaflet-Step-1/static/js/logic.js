@@ -1,6 +1,6 @@
 var myMap = L.map("map", {
     center: [44.53155795563836, -102.61109623371827],
-    zoom: 4
+    zoom: 5
 });
 
 // Adding tile layer
@@ -50,6 +50,26 @@ d3.json(link, function (response) {
 
     });
 
+    //Add a legend to the marker
+    var legend = L.control({ position: 'bottomright' });
+    legend.onAdd = function (myMap) {
+
+        var div = L.DomUtil.create('div', 'info legend'),
+            depthArray = [-10, 10, 30, 50, 70, 90],
+            labels = [];
+
+        // loop through our density intervals and generate a label with a colored square for each interval
+        for (var i = 0; i < depthArray.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + getColor(depthArray[i] + 1) + '  "></i> ' + '&nbsp&nbsp&nbsp' +
+                depthArray[i] + (depthArray[i + 1] ? '&ndash;' + depthArray[i + 1] + '<br>' : '+');
+        }
+
+        return div;
+    };
+
+    legend.addTo(myMap)
+
 });
 
 function getColor(depth) {
@@ -61,4 +81,8 @@ function getColor(depth) {
                         '#9409c8';
 
 }
+
+
+
+
 
