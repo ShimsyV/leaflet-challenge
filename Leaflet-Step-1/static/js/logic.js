@@ -39,7 +39,7 @@ d3.json(link, function (response) {
 
         //creating circle marker
         var myCircle = L.circle([geometry.coordinates[1], geometry.coordinates[0]], {
-            radius: magnitude * 7500,
+            radius: magnitude * 10000,
             color: 'black',
             fillColor: getColor(geometry.coordinates[2]),
             fillOpacity: .85,
